@@ -1,0 +1,17 @@
+<view class="container">
+  <view class='no_data' wx:if="{{ cardData.length <= 0 }}">
+    <view class='no_data__title'>您还没有创建轻名片哦</view>
+    <view class='no_data__tips'>
+      <view>
+        <text>简洁高效</text>
+      </view>
+      <view>
+        <text>环保节能</text>
+      </view>
+      <view>
+        <text>彰显身份</text>
+      </view>
+    </view>
+    <button class="no_data__button" type="primary" bindtap='createCard'>轻触创建轻名片</button>
+  </view>
+</view>

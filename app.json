@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/card_bag/card_bag",
+    "pages/discovery/discovery",
+    "pages/my/my",
+    "pages/edit/edit"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "轻名片",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#000"
+  },
+  "tabBar": {
+    "color": "#626567",
+    "selectedColor": "#09ba07",
+    "backgroundColor": "#FBFBFB",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "我的",
+        "iconPath": "images/card.png",
+        "selectedIconPath": "images/card_active.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "名片夹",
+        "iconPath": "images/card_bag.png",
+        "selectedIconPath": "images/card_bag_active.png"
+      },
+      {
+        "pagePath": "pages/discovery/discovery",
+        "text": "发现",
+        "iconPath": "images/discovery.png",
+        "selectedIconPath": "images/discovery_active.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "images/my.png",
+        "selectedIconPath": "images/my_active.png"
+      }
+    ]
+  }
+}

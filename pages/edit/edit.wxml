@@ -1,0 +1,122 @@
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title">{{ title }}</view>
+    <view class="page__desc">{{ subTitle }}</view>
+  </view>
+  <view class="page__bd">
+    <form bindsubmit='saveCard'>
+      <view class="weui-panel weui-panel_access">
+        <!-- <view class="weui-panel__hd">图文组合列表</view> -->
+        <view class="weui-panel__bd">
+          <view url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg edit_avatar__box">
+              <image class="weui-media-box__thumb edit_avatar__img" bindtap='chageAvatar' src="{{ avatar }}" />
+              <image class='edit_avatar__camera' src="/images/camera.png"/>
+            </view>
+            <view class="edit_avatar__right">
+              <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__bd">
+                  <input name="name-姓名-required" class="weui-input" placeholder="姓名" value="{{ initName }}"/>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="weui-cells__title">详细信息</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">电话 <text class="required_tip">*</text></view>
+          </view>
+          <view class="weui-cell__bd">
+            <input name="phone-联系电话-required" class="weui-input" value="{{ initPhone }}" placeholder="请输入常用联系电话" />
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">公司 <text class="required_tip">*</text></view>
+          </view>
+          <view class="weui-cell__bd">
+            <input name="coName-公司名称-required" class="weui-input" value="{{ initCoName }}"  placeholder="请输入公司名称" />
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">职务 <text class="required_tip">*</text></view>
+          </view>
+          <view class="weui-cell__bd">
+            <input name="position-职务-required" class="weui-input" value="{{ initPosition }}"  placeholder="请输入职务" />
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">邮件</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input name="email-电子邮箱" class="weui-input" placeholder="请输入邮箱地址" />
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">行业</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker name="industry-行业" mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
+              <view class="weui-input">{{time}}</view>
+            </picker>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">区域</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker name="address-地区" mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+              <view class="weui-input">{{date}}</view>
+            </picker>
+          </view>
+        </view>
+        <view class="weui-cells__title">更多</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell">
+            <view class="weui-cell__bd">
+              <textarea name="desp-详细描述" bindinput='despInput' class="weui-textarea" placeholder="让小伙伴更了解你..." style="height: 3.3em" />
+              <view class="weui-textarea-counter">{{ despCurLen }}/{{ despMaxLen }}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="weui-cells">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            <view class="weui-uploader">
+              <view class="weui-uploader__hd">
+                <view class="weui-uploader__title">图片</view>
+                <view class="weui-uploader__info">{{ imgPreList.length }}/{{ imgMaxLen }}</view>
+              </view>
+              <view class="weui-uploader__bd">
+                <view class="weui-uploader__files" id="uploaderFiles">
+                  <block wx:for="{{ imgPreList }}" wx:key="*this">
+                    <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+                      <image class="weui-uploader__img bdr-5" src="{{item}}" mode="aspectFill" />
+                    </view>
+                  </block>
+                </view>
+                <view class="weui-uploader__input-box" wx:if="{{ imgPreList.length < imgMaxLen }}">
+                  <view class="weui-uploader__input bdr-5" bindtap="chooseImage"></view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="weui-btn-area">
+        <button class="weui-btn" type="primary" formType="submit">保存</button>
+      </view>
+    </form>
+  </view>
+  <view class="page__ft">
+    <text class="page__ft-power">鹏凌科技提供技术支持</text>
+  </view>
+</view>

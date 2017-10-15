@@ -1,0 +1,23 @@
+/**index.wxss**/
+.no_data__title {
+  margin-top: 128rpx;
+}
+.no_data__tips {
+  display: block;
+  margin: 0 auto;
+  color: #595959;
+  font-weight: 200;
+  text-align: center;
+  margin-top: 32rpx;
+}
+
+.no_data__tips .no_data__tips-item {
+  list-style: circle;
+  font-size: 32rpx;
+  display: block;
+  margin-bottom: 16rpx;
+}
+
+.no_data__button {
+  margin-top: 64rpx;
+}

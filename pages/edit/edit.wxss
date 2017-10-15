@@ -1,0 +1,32 @@
+.edit_avatar__box {
+  position: relative;
+}
+
+.edit_avatar__img {
+  position: absolute;
+  border-radius: 5px;
+  top: 0;
+  left: 0;
+}
+
+.edit_avatar__camera {
+  position: absolute;
+  width: 34rpx;
+  height: 34rpx;
+  left: 50%;
+  bottom: 4%;
+  transform: translateX(-17rpx)
+}
+
+/* .edit_avatar::after {
+  content: '+';
+  position: absolute;
+  left: 50%;
+  bottom: 0%;
+  font-size: 32px;
+  color: rgba(0,0,0,0.5)
+} */
+
+.required_tip {
+  color: red;
+}
