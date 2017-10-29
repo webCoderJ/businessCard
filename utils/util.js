@@ -18,7 +18,34 @@ module.exports = {
   formatTime: formatTime
 }
 
+// 封装loading模块
+let loader = {
+  show: function (context) {
+    wx.showLoading({
+      title: '加载中',
+    })
+    wx.showNavigationBarLoading()
+    if (context){
+      context.setData({
+        isLoading: false
+      })
+    }
+  },
+  hide: function (context) {
+    wx.hideLoading()
+    wx.hideNavigationBarLoading()
+    if (context) {
+      context.setData({
+        isLoading: false
+      })
+    }
+  }
+}
+
+module.exports.loader = loader
+
 function pull(url, method, params) {
+  loader.show()
   return new Promise(function (resolve, reject) {
     wx.request({
       url: url,
@@ -28,10 +55,12 @@ function pull(url, method, params) {
         //'Content-Type': 'application/json'
       },
       success: function (res) {
+        loader.hide()
         console.log("success")
         resolve(res)
       },
       fail: function (res) {
+        loader.hide()
         reject(res)
         console.log("failed")
       }
@@ -47,3 +76,4 @@ module.exports.http = {
     return pull(url, 'POST', params)
   }
 }
+

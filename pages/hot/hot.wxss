@@ -1,0 +1,16 @@
+/* pages/hot/hot.wxss */
+
+.no_data {
+  margin-top: 200rpx;
+}
+
+.page_title {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #212241;
+  width: 100%;
+  padding: 20rpx 30rpx;
+  z-index: 10;
+  opacity: 0.88;
+}

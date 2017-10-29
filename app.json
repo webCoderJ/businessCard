@@ -1,17 +1,20 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/card_bag/card_bag",
+    "pages/show/show",
+    "pages/cards/cards",
     "pages/discovery/discovery",
     "pages/my/my",
-    "pages/edit/edit"
+    "pages/edit/edit",
+    "pages/hot/hot",
+    "pages/needs/needs"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "#ccc",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "轻名片",
+    "navigationBarTitleText": "致名片",
     "navigationBarTextStyle": "black",
-    "backgroundColor": "#000"
+    "backgroundColor": "#fff"
   },
   "tabBar": {
     "color": "#626567",
@@ -21,12 +24,12 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "我的",
+        "text": "名片",
         "iconPath": "images/card.png",
         "selectedIconPath": "images/card_active.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/cards/cards",
         "text": "名片夹",
         "iconPath": "images/card_bag.png",
         "selectedIconPath": "images/card_bag_active.png"
@@ -44,5 +47,6 @@
         "selectedIconPath": "images/my_active.png"
       }
     ]
-  }
+  },
+  "debug": true
 }

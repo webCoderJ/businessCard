@@ -11,7 +11,7 @@
           <view url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
             <view class="weui-media-box__hd weui-media-box__hd_in-appmsg edit_avatar__box">
               <image class="weui-media-box__thumb edit_avatar__img" bindtap='chageAvatar' src="{{ avatar }}" />
-              <image class='edit_avatar__camera' src="/images/camera.png"/>
+              <image class='edit_avatar__camera' bindtap='chageAvatar' src="/images/camera.png"/>
             </view>
             <view class="edit_avatar__right">
               <view class="weui-cell weui-cell_input">
@@ -54,7 +54,7 @@
             <view class="weui-label">邮件</view>
           </view>
           <view class="weui-cell__bd">
-            <input name="email-电子邮箱" class="weui-input" placeholder="请输入邮箱地址" />
+            <input name="email-电子邮箱" class="weui-input" value="{{ initEmail }}" placeholder="请输入邮箱地址" />
           </view>
         </view>
         <view class="weui-cell weui-cell_input">
@@ -117,6 +117,6 @@
     </form>
   </view>
   <view class="page__ft">
-    <text class="page__ft-power">鹏凌科技提供技术支持</text>
+    <text class="t-holder">Powered by 鹏凌信息技术</text>
   </view>
 </view>

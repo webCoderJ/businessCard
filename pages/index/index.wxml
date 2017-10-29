@@ -1,17 +1,103 @@
-<view class="container">
-  <view class='no_data' wx:if="{{ cardData.length <= 0 }}">
-    <view class='no_data__title'>您还没有创建轻名片哦</view>
+<view class="page">
+  <!--无数据  -->
+  <view class='page__bd no_data t-c' wx:if="{{ !isLoading && !card  }}">
+    <view class='no_data__title'>您还没有创建致名片哦</view>
     <view class='no_data__tips'>
       <view>
-        <text>简洁高效</text>
+        <text class='no_data__tips-text'>简洁高效</text>
       </view>
       <view>
-        <text>环保节能</text>
+        <text class='no_data__tips-text'>环保节能</text>
       </view>
       <view>
-        <text>彰显身份</text>
+        <text class='no_data__tips-text'>彰显身份</text>
       </view>
     </view>
-    <button class="no_data__button" type="primary" bindtap='createCard'>轻触创建轻名片</button>
+    <image class="weui-article__img" style="width: 187.5px; height: 334;" mode="aspectFit" src="/images/index-holder.png" />
+    <view class="button-sp-area create-btn">
+      <button class="no_data__button" type="primary" bindtap='createCard'>创建致名片</button>
+    </view>
+  </view>
+  <view class='page__bd t-c' wx:elif="{{ !isLoading && card }}">
+    <!--名片展示  -->
+    <view class="card_box">
+      <view class="weui-flex card_box__main">
+        <view class="weui-flex__item">
+          <view class="card_box-name card_text t-l">{{ card.name }}</view>
+          <view class="card_box-pos card_text t-l">{{ card.position }}</view>
+        </view>
+        <view class="weui-flex__item">
+        </view>
+        <view class="weui-flex__item">
+        </view>
+        <view class="weui-flex__item">
+          <image class="bdr-5" style="width: 140rpx; height: 140rpx;" mode="aspectFill" src="/images/avatar.jpg" />
+        </view>
+      </view>
+      <view class="card_details">
+        <view class="card_details-item">
+          <image class="card_details_icon card_icon" mode="aspectFill" src="/images/icon-tel.png" />
+          <text class="card_details_text wx-blue">{{ card.phone }}</text>
+        </view>
+        <view class="card_details-item">
+          <image class="card_details_icon card_icon" mode="aspectFill" src="/images/icon-co.png" />
+          <text class="card_details_text">{{ card.co }}</text>
+        </view>
+        <view class="card_details-item">
+          <image class="card_details_icon card_icon" mode="aspectFill" src="/images/icon-mail.png" />
+          <text class="card_details_text">{{ card.email }}</text>
+        </view>
+      </view>
+    </view>
+
+    <!--点赞/热度/保存  -->
+    <view class="hot_box">
+      <navigator class='hot_box__item' url="/pages/hot/hot?type=upvote" open-type="navigate" hover-class="navigator-hover">
+        <image class="card_icon hot_icon" src="/images/icon-good.png" />
+        <text class="hot_text">赞：{{ card.pop.upvote }}</text>
+      </navigator>
+      <navigator class='hot_box__item' url="/pages/hot/hot?type=hot" open-type="navigate" hover-class="navigator-hover">
+        <image class="card_icon hot_icon" src="/images/icon-hot.png" />
+        <text class="hot_text">人气：{{ card.pop.hot }}</text>
+      </navigator>
+      <navigator class='hot_box__item' url="/pages/hot/hot?type=save" open-type="navigate" hover-class="navigator-hover">
+        <image class="card_icon hot_icon" src="/images/icon-cloud.png" />
+        <text class="hot_text">保存：{{ card.pop.save }}</text>
+      </navigator>
+    </view>
+
+    <view class="weui-cells weui-cells_after-title mg-tp">
+      <view class="weui-cell">
+        <view class="weui-cell__hd">
+          <image src="/images/icon-industry.png" class="card_icon" style="margin-right: 15px;vertical-align: middle;"></image>
+        </view>
+        <view class="weui-cell__bd t-l">{{ card.industry }}</view>
+        <view class="weui-cell__ft">行业</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__hd">
+          <image src="/images/icon-area.png" class="card_icon" style="margin-right: 15px;vertical-align: middle;"></image>
+        </view>
+        <view class="weui-cell__bd t-l">{{ card.area }}</view>
+        <view class="weui-cell__ft">地区</view>
+      </view>
+    </view>
+
+    <view class="weui-panel weui-panel_access">
+      <view class="weui-panel__bd">
+        <view class="weui-media-box weui-media-box_text">
+          <view class="weui-media-box__title weui-media-box__title_in-text t-l">
+            <image src="/images/icon-more.png" class="card_icon" style="margin-right: 10px;vertical-align: middle;"></image>
+            更多
+          </view>
+          <view class="weui-media-box__desc t-l">{{ card.more }}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-btn-area">
+      <button class="weui-btn" type="primary" open-type="share">致名片</button>
+      <button class="weui-btn" type="default" bindtap='editCard'>编辑名片</button>
+    </view>
   </view>
 </view>

@@ -1,5 +1,6 @@
 // pages/edit/edit.js
-var ujs = require('../../utils/util.js')
+let ujs = require('../../utils/util.js')
+let card = require('../../utils/card.js').card[0]
 Page({
 
   /**
@@ -7,23 +8,46 @@ Page({
    */
   data: {
     title: '',
-    subTitle: '每次呈递都携有余温',
+    subTitle: '宁 ‧ 静 ‧ 致 ‧ 远',
     isLoading: false,
-    avatar: '/images/avatar.jpg',
 
     // 描述长度
     despCurLen: 0,
-    despMaxLen: 200,
+    despMaxLen: 140,
 
     // 图片
     imgMaxLen: 5,
     imgPreList: [],
 
     // 表单数据
-    initName: '彭杰',
-    initPhone: '17600118311',
-    initCoName: 'TigerWit',
-    initPosition: 'Coder',
+    avatar: '',
+    initName: '',
+    initPhone: '',
+    initCoName: '',
+    initPosition: '',
+    initEmail: ''
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    console.log(options)
+    if (options.initNewCard == 1) {
+      this.setData({
+        title: '创建我的第一张致名片',
+      })
+    } else {
+      this.setData({
+        title: '每次修改背后都隐藏追求完美的品质',
+        avatar: card.avatar,
+        initName: card.name,
+        initPhone: card.phone,
+        initCoName: card.co,
+        initPosition: card.position,
+        initEmail: card.email
+      })
+    }
   },
 
   chageAvatar: function () {
@@ -129,69 +153,11 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    console.log(options)
-    if (options.initNewCard == 1){
-      this.setData({
-        title: '创建我的第一张轻名片'
-      })
-    } else {
-      // 
-      this.setData({
-        title: '每次修改背后都隐藏追求完美的品质'
-      })
-    }
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  previewImage: function (e) {
+    console.log(e)
+    wx.previewImage({
+      current: e.currentTarget.id, // 当前显示图片的http链接
+      urls: this.data.imgPreList // 需要预览的图片http链接列表
+    })
   }
 })

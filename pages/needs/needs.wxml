@@ -1,0 +1,25 @@
+<!--pages/needs/needs.wxml-->
+
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title">{{ need.title }}</view>
+    <view class="page__desc"></view>
+  </view>
+  <view class="page__bd">
+    <view class="weui-form-preview">
+      <view class="weui-form-preview__hd">
+        <view class="weui-form-preview__label">预估价格</view>
+        <view class="weui-form-preview__value_in-hd">¥2400.00</view>
+      </view>
+      <view class="weui-form-preview__bd">
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__value t-l">{{ need.desc }}</view>
+        </view>
+      </view>
+      <view class="weui-form-preview__ft">
+        <button
+          class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" bindtap='makePhoneCall'>联系TA</button>
+      </view>
+    </view>
+  </view>
+</view>

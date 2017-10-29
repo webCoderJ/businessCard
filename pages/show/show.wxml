@@ -1,0 +1,83 @@
+<!--pages/show/show.wxml-->
+<view class="page page__bd_spacing flex-box">
+  <view class="card_show flex-item shadow">
+    <view class="flex-box">
+      <view class="card_show__hot flex-item">
+        <text class="hot-item card_show__hot-title t-gray1 t-s">被赞</text>
+        <text class="hot-item card_show__hot-num t-xxl">{{ card.hot.upvote || 12 }}</text>
+        <image class="hot-item card_show__hot-img" mode="aspectFit" src="/images/icon-wave1.png" />
+      </view>
+      <view class="card_show__hot flex-item">
+        <text class="hot-item card_show__hot-title t-gray1 t-s">被保存</text>
+        <text class="hot-item card_show__hot-num t-xxl">{{ card.hot.save || 8 }}</text>
+        <image class="hot-item card_show__hot-img" mode="aspectFit" src="/images/icon-wave2.png" />
+      </view>
+      <view class="card_show__hot flex-item">
+        <text class="hot-item card_show__hot-title t-gray1 t-s">被查看</text>
+        <text class="hot-item card_show__hot-num t-xxl">{{ card.hot.good || 90 }}</text>
+        <image class="hot-item card_show__hot-img" mode="aspectFit" src="/images/icon-wave3.png" />
+      </view>
+    </view>
+    <view class="card_show__border mg-tp pd-tp flex-box">
+      <image class="card_show__main-avatar" bindtap='previewImage' data-url="{{ card.avatar }}" mode="aspectFill" src="{{ card.avatar }}" />
+      <view class="card_show__main-info card_list__details_box pd-lf mg-lg">
+        <view class="card_list__details">
+          <text class="card_list__details-name t-nowrap">{{ card.name }}</text>
+          <text class="card_list__details-posi t-nowrap">{{ card.position }}</text>
+        </view>
+        <view class="card_list__details" style="padding-top: 12rpx;">
+          <text class="card_list__details-co t-xl t-nowrap">{{ card.co }}</text>
+        </view>
+        <view class="card_list__details">
+          <image class="card_details_icon" mode="aspectFill" src="/images/icon-tel.png" />
+          <text class="card_list__details-tel" bindtap='makePhoneCall' data-number="{{ card.phone }}">{{ card.phone }}</text>
+        </view>
+      </view>
+    </view>
+    <view class="card_show__border card_show__need mg-tp pd-tp t-s t-gray1">
+      商业需求
+      <view class="mg-tp flex-box t-c">
+        <navigator class="need-item flex-item" url="/pages/needs/needs?type=chance" open-type="navigate" hover-class="navigator-hover">
+          <image class="need_icon" mode="aspectFill" src="/images/icon-chance.png" />
+          <view class="weui-badge" style="position: absolute;top: -.4em;right: -.4em;">8</view>
+          <view>合作机会</view>
+        </navigator>
+
+        <navigator class="need-item flex-item" url="/pages/needs/needs?type=buy" open-type="navigate" hover-class="navigator-hover">
+          <image class="need_icon" mode="aspectFill" src="/images/icon-buy.png" />
+          <view class="weui-badge" style="position: absolute;top: -.4em;right: -.4em;">8</view>
+          <view>采购计划</view>
+        </navigator>
+
+        <navigator class="need-item flex-item" url="/pages/needs/needs?type=job" open-type="navigate" hover-class="navigator-hover">
+          <image class="need_icon" mode="aspectFill" src="/images/icon-job.png" />
+          <view class="weui-badge" style="position: absolute;top: -.4em;right: -.4em;">8</view>
+          <view>人才招聘</view>
+        </navigator>
+
+        <navigator class="need-item flex-item" url="/pages/needs/needs?type=provide" open-type="navigate" hover-class="navigator-hover">
+          <image class="need_icon" mode="aspectFill" src="/images/icon-provide.png" />
+          <view class="weui-badge" style="position: absolute;top: -.4em;right: -.4em;">8</view>
+          <view>物资供应</view>
+        </navigator>
+      </view>
+      <view class="card_addition card_show__border pd-tp mg-tp t-s">
+        <view class="card_details">
+          <view class="card_details-item">
+            <image class="card_details_icon card_icon" mode="aspectFill" src="/images/icon-area.png" />
+            <!--2.0加入导航功能  -->
+            <text class="card_details_text">{{ card.area }}</text>
+          </view>
+          <view class="card_details-item">
+            <image class="card_details_icon card_icon" mode="aspectFill" src="/images/icon-mail.png" />
+            <text class="card_details_text">{{ card.email }}</text>
+          </view>
+          <view class="card_details-item">
+            <image class="card_details_icon card_icon" mode="aspectFill" src="/images/icon-more.png" />
+            <text class="card_details_text">{{ card.more }}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

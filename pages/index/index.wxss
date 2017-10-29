@@ -1,23 +1,135 @@
 /**index.wxss**/
-.no_data__title {
-  margin-top: 128rpx;
+.create-btn {
+  margin-top: -66rpx;
 }
-.no_data__tips {
-  display: block;
-  margin: 0 auto;
-  color: #595959;
-  font-weight: 200;
-  text-align: center;
-  margin-top: 32rpx;
+.no_data__title {
+    margin-top: 85rpx;
 }
 
-.no_data__tips .no_data__tips-item {
-  list-style: circle;
-  font-size: 32rpx;
-  display: block;
-  margin-bottom: 16rpx;
+.no_data__tips {
+    display: block;
+    margin: 0 auto;
+    color: #595959;
+    font-weight: 200;
+    text-align: center;
+    margin-top: 55rpx;
+    margin-bottom: 20rpx;
+}
+
+.no_data__tips-text {
+    list-style: circle;
+    display: block;
+    font-size: 28rpx;
+    margin-bottom: 16rpx;
 }
 
 .no_data__button {
-  margin-top: 64rpx;
+    margin-top: 64rpx;
+}
+
+/*卡片样式  */
+
+.card_box {
+    /* border: 10rpx solid #fff; */
+    border-radius: 20rpx;
+    padding: 20rpx 20rpx;
+    margin: 30rpx;
+    background: #fff;
+    box-shadow: 5rpx 5rpx 10rpx #ddd;
+}
+
+.card_box__main {
+    height: 120rpx;
+}
+
+.card_box__main-left {
+    float: left;
+    width: 390rpx;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card_text {
+    color: #575757;
+}
+
+.card_box-name {
+    font-size: 45rpx;
+}
+
+.card_box-pos {
+    font-size: 30rpx;
+}
+
+.card_details {
+    margin-top: 45rpx;
+    display: flex;
+    -webkit-display: flex;
+    height: 190rpx;
+    justify-content: space-around;
+    flex-flow: column nowrap;
+}
+
+.card_details-item {
+    flex: 1;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.card_icon {
+    width: 45rpx;
+    height: 45rpx;
+}
+
+.card_details_icon {
+    margin-right: 36rpx;
+}
+
+.card_details_text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.hot_box {
+    padding: 0rpx 30rpx;
+    border-radius: 15rpx;
+    display: flex;
+    display: -webkit-flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    height: 80rpx;
+    box-sizing: border-box;
+}
+
+.hot_box__item {
+    flex: 1;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15rpx;
+    margin: 0 5rpx;
+    background: #fff;
+    box-shadow: 5rpx 5rpx 10rpx #ccc;
+}
+
+
+/* .hot_box__item:nth-child(2) {
+  border-left: 1px solid #d8d8d8;
+  border-right: 1px solid #d8d8d8;
+} */
+
+.hot_icon {
+    margin-right: 8rpx;
+}
+
+.hot_text {
+    font-size: 28rpx;
 }

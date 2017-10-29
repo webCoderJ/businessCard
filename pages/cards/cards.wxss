@@ -1,0 +1,5 @@
+/* pages/cards/cards.wxss */
+.no_data__title{
+  margin-top: 288rpx;
+  color: #8a8a8a;
+}
