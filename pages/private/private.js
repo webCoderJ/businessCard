@@ -1,13 +1,11 @@
-// pages/my/my.js
-let card = require('../../utils/card')
-let util = require('../../utils/util')
+// pages/private/private.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    card: card.card[0]
+  
   },
 
   /**

@@ -26,8 +26,8 @@
 </view>
 
 <!--swiper  -->
-<view class="discovery__content" style="width:{{ windowWidth }}px;height: {{ windowHeight - 100 }}px;">
-  <swiper circular bindchange="togglepage" current="{{showtab}}" class="discovery__swiper" style="height: {{ windowHeight - 100}}px;">
+<view class="discovery__content" style="width:{{ windowWidth }}px;height: {{ windowHeight }}px;">
+  <swiper circular bindchange="togglepage" current="{{showtab}}" class="discovery__swiper" style="height: {{ windowHeight}}px;">
     <swiper-item wx:key="*this" class="discovery__list">
       <!--需求卡片列表  -->
       <!--合作  -->

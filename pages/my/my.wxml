@@ -1,2 +1,60 @@
-<!--pages/my/my.wxml-->
-<text>pages/my/my.wxml</text>
+<view class="page__bd mg-tp">
+  <view class="weui-panel weui-panel_access">
+    <view class="weui-panel__bd">
+      <navigator url="/pages/show/show" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+          <image class="weui-media-box__thumb bdr-5" src="/images/avatar.jpg" />
+        </view>
+        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+          <view class="weui-media-box__title">{{ card.name }}</view>
+          <view class="weui-media-box__desc">{{ card.more }}</view>
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </navigator>
+    </view>
+  </view>
+
+  <view class="weui-panel">
+    <view class="weui-panel__bd">
+      <view class="weui-media-box weui-media-box_small-appmsg">
+        <view class="weui-cells weui-cells_in-small-appmsg">
+          <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+            <view class="weui-cell__hd">
+              <image src="/images/icon-need.png" style="width: 20px;height: 20px;margin-top: 6px;margin-right: 5px" />
+            </view>
+            <view class="weui-cell__bd weui-cell_primary">
+              <view>需求</view>
+            </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access">共6条</view>
+          </navigator>
+          <navigator url="/pages/private/private" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+            <view class="weui-cell__hd">
+              <image src="/images/icon-private.png" style="width: 25px;height: 25px;margin-top: 0px;margin-right: 4px" />
+            </view>
+            <view class="weui-cell__bd weui-cell_primary">
+              <view>隐私设置</view>
+            </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="weui-panel">
+    <view class="weui-panel__bd">
+      <view class="weui-media-box weui-media-box_small-appmsg">
+        <view class="weui-cells weui-cells_in-small-appmsg">
+          <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+            <view class="weui-cell__hd">
+              <image src="/images/icon-focus.png" style="width: 20px;height: 20px;margin-top: 6px;margin-right: 4px" />
+            </view>
+            <view class="weui-cell__bd weui-cell_primary">
+              <view>关注我们</view>
+            </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

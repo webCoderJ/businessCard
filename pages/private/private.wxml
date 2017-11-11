@@ -1,0 +1,28 @@
+<view class="page">
+  <view class="page__bd mg-tp">
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_switch">
+        <view class="weui-cell__bd">附近的名片</view>
+        <view class="weui-cell__ft">
+          <switch checked />
+        </view>
+      </view>
+    </view>
+    <view class="t-gray1 pd30 t-m">
+      可查看附近的名片，同时您的名片也会被附近的人看到，默认开启
+    </view>
+  </view>
+  <view class="">
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_switch">
+        <view class="weui-cell__bd">可查看我的资料</view>
+        <view class="weui-cell__ft">
+          <switch checked />
+        </view>
+      </view>
+    </view>
+    <view class="t-gray1 pd30 t-m">
+      潜在客户或商业伙伴可查看您的资料，时刻把握商业机会
+    </view>
+  </view>
+</view>

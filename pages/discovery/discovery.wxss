@@ -94,7 +94,7 @@
 .discovery__content {
   /* padding-top: 100rpx; */
   min-height: 100%;
-  position: fixed;
+  position: relative;
   top: 100rpx;
   left: 0;
 }
