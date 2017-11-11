@@ -3,3 +3,14 @@
   margin-top: 288rpx;
   color: #8a8a8a;
 }
+
+.card_list__hot_box {
+  position: relative;
+}
+
+.distance {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  right: 0;
+}

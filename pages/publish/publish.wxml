@@ -1,0 +1,59 @@
+<!--pages/publish/publish.wxml-->
+<form bindsubmit='saveNeed'>
+  <view class="page publish page mg-tp">
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_access">
+        <view class="weui-cell__bd" bindtap='showNeedsSelections'>{{ curType.key }}</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access" style="font-size: 0">
+          <view style="display: inline-block;vertical-align:middle; font-size: 17px;"></view>
+        </view>
+      </view>
+    </view>
+    <!--输入  -->
+    <view class="weui-cells weui-cells_after-title publish__border">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd">
+          <input class="weui-input" name="title" value="{{ title }}" placeholder="请输入标题" focus='true'/>
+        </view>
+      </view>
+    </view>
+    <view class="pd30 publish__border">
+      <textarea class="publish__text" name="desp" value="{{ desp }}" auto-height='true' placeholder='请简要描述您的商务需求...'>
+      </textarea>
+    </view>
+
+    <!--上传组件  -->
+    <view class="publish__uploader publish__border">
+      <view class="weui-cells mg0">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            <view class="weui-uploader">
+              <view class="weui-uploader__hd">
+                <view class="weui-uploader__title t-gray1">图片</view>
+                <view class="weui-uploader__info">{{ imgPreList.length || 0 }}/{{ imgMaxLen || 0 }}</view>
+              </view>
+              <view class="weui-uploader__bd">
+                <view class="weui-uploader__files" id="uploaderFiles">
+                  <block wx:for="{{ imgPreList }}" wx:key="*this">
+                    <view class="weui-uploader__file edit_avatar__box">
+                      <image class="weui-uploader__img bdr-5" bindtap="previewImage" id="{{item}}" src="{{item}}" mode="aspectFill" />
+                      <image class='edit_avatar__delete' id="{{item}}" bindtap="deleteImage" src="/images/icon-delete.png" />
+                    </view>
+                  </block>
+                </view>
+                <view class="weui-uploader__input-box" wx:if="{{ imgPreList.length < imgMaxLen }}">
+                  <view class="weui-uploader__input bdr-5" bindtap="chooseImage"></view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!--按钮  -->
+  <view class="page__bd page__bd_spacing mg-tp pd-tp">
+    <button class="weui-btn" type="primary" formType="submit">发布需求</button>
+  </view>
+</form>

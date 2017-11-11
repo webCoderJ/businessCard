@@ -44,6 +44,7 @@ bindscrolltolower="lower"
           <view wx:if="{{ card.needs.job }}" class="weui-badge t-s" style="margin-top: 5rpx;">招</view>
           <view wx:if="{{ card.needs.buy }}" class="weui-badge t-s" style="margin-top: 5rpx;">购</view>
           <view wx:if="{{ card.needs.co }}" class="weui-badge t-s" style="margin-top: 5rpx;">合</view> 
+          <view class="distance t-s t-gray1 t-r">{{ card.distance }}</view>
       </view>
     </navigator>
   </view>

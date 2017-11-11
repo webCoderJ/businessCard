@@ -21,6 +21,7 @@ Page({
       upvote: "谁赞过我",
       hot: "谁看过我",
       save: "谁保存过我",
+      nearby: "附近的名片"
     }
     const _this = this
     console.log(options)

@@ -1,2 +1,31 @@
-<!--pages/discovery/discovery.wxml-->
-<text>pages/discovery/discovery.wxml</text>
+<view class="page">
+  <!--发布按钮  -->
+  <view class="publish__add {{ addAnimation ? 'publish__add-active' : '' }}" hover-class="weui-cell_active" bindtap="showNeedsSelections">
+    <text>+</text>
+  </view>
+  
+</view>
+
+<!--swiper  -->
+<view class='discovery_navi flex-box shadow'>
+  <scroll-view scroll-x="true" scroll-with-animation="true" scroll-into-view="tab_{{showtab}}" class="discovery_navi__box">
+    <view wx:for="{{ tabs }}" bindtap="setTab" wx:key="*this" class="navi_item {{showtab == index ? 'navi_active':''}}" id="tab_{{ index }}" data-tabindex="{{ index }}">
+      {{ item }}
+    </view>
+  </scroll-view>
+  <view class="discovery_navi__tools flex-item flex-box">
+    <navigator url="/pages/search/search" class="discovery__icon_box search flex-item bdr-5" hover-class="none">
+      <image src="/images/icon-search.png" class="card_icon" style="vertical-align: middle;">
+      </image>
+   </navigator>
+    <navigator url="/pages/hot/hot?type=nearby" class="discovery__icon_box nearby flex-item bdr-5" hover-class="none">
+      <image src="/images/icon-nearby.png" class="card_icon" style="vertical-align: middle;">
+      </image>
+    </navigator>
+  </view>
+</view>
+<swiper circular bindchange="togglepage" current="{{showtab}}" style='width:{{windowWidth}}px;min-height:{{windowHeight-42}}px;'>
+  <swiper-item wx:for="{{ tabs }}" wx:key="*this" class="pd30 white-bg">
+    {{ item }}
+  </swiper-item>
+</swiper>

@@ -7,7 +7,8 @@ let util = require('../../utils/util')
 Page({
   data: {
     card: false,
-    isLoading: true
+    isLoading: true,
+    shared: false
   },
   onPullDownRefresh: function (e) {
     console.log(e)
@@ -24,27 +25,36 @@ Page({
       url: '../edit/edit?initNewCard=0'
     })
   },
-  onLoad: function () {
+  onLoad: function (options) {
+    console.log(options)
     console.log(this.data.isLoading)
     let ctx = this
-    // this.setData({
-    //   cardData: card.card
-    // })
-    // wx.navigateTo({
-    //   url: '../edit/edit?initNewCard=0'
-    // })
+
+    // 此flag判别当前页面是否为分享页面
+    this.setData({
+      shared: options.shared
+    })
+    
     util.loader.show(ctx)
     setTimeout(() => {
       util.loader.hide(ctx)
       ctx.setData({
         card: card.card[0]
       })
-    }, 1000)
+    }, 100)
     // util.http.get('/test', {}).then(function(){})
     wx.showShareMenu({
       withShareTicket: true
     })
   },
+  previewImage: function(e){
+    console.log(e.currentTarget.id)
+    wx.previewImage({
+      current: e.currentTarget.id,
+      urls: this.data.card.imgs
+    })
+  },
+
   getUserInfo: function (e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
@@ -60,7 +70,7 @@ Page({
     }
     return {
       title: '这是' + this.data.card.name + '的名片，请惠存',
-      path: '/pages/index/index?id=' + this.data.card.id,
+      path: '/pages/index/index?shared=1&id=' + this.data.card.id,
       success: function (res) {
         // 转发成功
       },

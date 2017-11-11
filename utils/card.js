@@ -10,6 +10,15 @@ module.exports = {
       position: '前端开发',
       email: 'jiejiexf@qq.com',
       industry: '金融',
+      distance: '>100km',
+      hasSaved: false,
+      imgs: [
+        '/images/avatar.jpg',
+        '/images/icon-hot.png',
+        '/images/icon-job.png',
+        '/images/icon-co.png',
+        '/images/icon-provide.png'
+      ],
       address: '北京东城区',
       more: '本公司开发小程序，牛批得很！想做快点给老子打电话！！！Talk is cheap, show me the code!，本公司开发小程序，牛批得很！想做快点给老子打电话！！！Talk is cheap, show me the code!本公司开发小程序，牛批得很！想做快点给老子打电话！！！Talk is cheap, show me the code!本公司开发小程序，牛批得很！想做快点给老子打电话！！！Talk is cheap, show me the code!本公司开发小程序，牛批得很！想做快点给老子打电话！！！Talk is cheap, show me the code!本公司开发小程序，牛批得很！想做快点给老子打电话！！！Talk is cheap, show me the code!',
       // 需求

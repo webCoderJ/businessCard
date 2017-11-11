@@ -37,25 +37,25 @@
     <view class="card_show__border card_show__need mg-tp pd-tp t-s t-gray1">
       商业需求
       <view class="mg-tp flex-box t-c">
-        <navigator class="need-item flex-item" url="/pages/needs/needs?type=chance" open-type="navigate" hover-class="navigator-hover">
+        <navigator class="need-item flex-item bdr-5" url="/pages/needs/needs?type=chance" open-type="navigate" hover-class="navigator-hover">
           <image class="need_icon" mode="aspectFill" src="/images/icon-chance.png" />
           <view class="weui-badge" style="position: absolute;top: -.4em;right: -.4em;">8</view>
           <view>合作机会</view>
         </navigator>
 
-        <navigator class="need-item flex-item" url="/pages/needs/needs?type=buy" open-type="navigate" hover-class="navigator-hover">
+        <navigator class="need-item flex-item bdr-5" url="/pages/needs/needs?type=buy" open-type="navigate" hover-class="navigator-hover">
           <image class="need_icon" mode="aspectFill" src="/images/icon-buy.png" />
           <view class="weui-badge" style="position: absolute;top: -.4em;right: -.4em;">8</view>
           <view>采购计划</view>
         </navigator>
 
-        <navigator class="need-item flex-item" url="/pages/needs/needs?type=job" open-type="navigate" hover-class="navigator-hover">
+        <navigator class="need-item flex-item bdr-5" url="/pages/needs/needs?type=job" open-type="navigate" hover-class="navigator-hover">
           <image class="need_icon" mode="aspectFill" src="/images/icon-job.png" />
           <view class="weui-badge" style="position: absolute;top: -.4em;right: -.4em;">8</view>
           <view>人才招聘</view>
         </navigator>
 
-        <navigator class="need-item flex-item" url="/pages/needs/needs?type=provide" open-type="navigate" hover-class="navigator-hover">
+        <navigator class="need-item flex-item bdr-5" url="/pages/needs/needs?type=provide" open-type="navigate" hover-class="navigator-hover">
           <image class="need_icon" mode="aspectFill" src="/images/icon-provide.png" />
           <view class="weui-badge" style="position: absolute;top: -.4em;right: -.4em;">8</view>
           <view>物资供应</view>
@@ -67,6 +67,7 @@
             <image class="card_details_icon card_icon" mode="aspectFill" src="/images/icon-area.png" />
             <!--2.0加入导航功能  -->
             <text class="card_details_text">{{ card.area }}</text>
+            <text class="card_details_text fr">{{ card.distance }}</text>
           </view>
           <view class="card_details-item">
             <image class="card_details_icon card_icon" mode="aspectFill" src="/images/icon-mail.png" />
@@ -79,5 +80,11 @@
         </view>
       </view>
     </view>
+  </view>
+</view>
+
+<view class="page_bd__spacing mg-bt" hidden="{{ !!card.saved }}">
+  <view class="button-sp-area">
+    <button class="weui-btn" type="primary" bindtap="saveCard">保存至名片夹</button>
   </view>
 </view>

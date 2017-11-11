@@ -1,0 +1,49 @@
+/* pages/publish/publish.wxss */
+.publish {
+  background: #fff;
+  height: 100%;
+}
+
+.publish__text {
+  min-height: 220rpx;
+}
+
+.edit_avatar__delete {
+  position: absolute;
+  width: 35rpx;
+  height: 35rpx;
+  right: 10rpx;
+  top: 10rpx;
+  padding: 10rpx;
+  padding-top: 0;
+  padding-right: 0;
+}
+
+.edit_avatar__box {
+  position: relative;
+}
+
+.edit_avatar__img {
+  position: absolute;
+  border-radius: 5px;
+  top: 0;
+  left: 0;
+}
+
+.edit_avatar__camera {
+  position: absolute;
+  width: 34rpx;
+  height: 34rpx;
+  left: 50%;
+  bottom: 4%;
+  transform: translateX(-17rpx)
+}
+
+.publish__border {
+  border-top: 30rpx solid #F8F8F8;
+}
+
+.weui-cells::after, .weui-cells::before{
+  border: none;
+}
+

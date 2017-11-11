@@ -1,26 +1,19 @@
 <!--pages/cards/cards.wxml-->
 <view class="page">
   <view class='page__bd page__bd_spacing no_data t-c' wx:if="{{ cards.length <= 0 }}">
-  <view class='no_data__title t-m t-gray2' wx:if="{{ type == 'hot' }}">很遗憾，还没有人来看过您哦~</view>
-  <view class='no_data__title t-m t-gray2' wx:if="{{ type == 'upvote' }}">很遗憾，还没有人赞过您哦~</view>
-  <view class='no_data__title t-m t-gray2' wx:if="{{ type == 'save' }}">很遗憾，还没有人来看过您哦~</view>
-  <image class="weui-article__img" style="width: 120px; height: 180px;" mode="aspectFit" src="/images/icon-nodata.png" />
-  <view class="button-sp-area">
-    <button class="weui-btn" type="primary" plain="true" bindtap='discovery' size="default">分享名片</button>
+    <view class='no_data__title t-m t-gray2' wx:if="{{ type == 'hot' }}">很遗憾，还没有人来看过您哦~</view>
+    <view class='no_data__title t-m t-gray2' wx:if="{{ type == 'upvote' }}">很遗憾，还没有人赞过您哦~</view>
+    <view class='no_data__title t-m t-gray2' wx:if="{{ type == 'save' }}">很遗憾，还没有人来看过您哦~</view>
+    <view class='no_data__title t-m t-gray2' wx:if="{{ type == 'nearby' }}">很遗憾，附近还没有名片~</view>
+    <image class="weui-article__img" style="width: 120px; height: 180px;" mode="aspectFit" src="/images/icon-nodata.png" />
+    <view class="button-sp-area">
+      <button class="weui-btn" type="primary" plain="true" bindtap='discovery' size="default">分享名片</button>
+    </view>
   </view>
-</view>
 </view>
 
 <!--名片列表  -->
-<scroll-view 
-class='page blue_bg' 
-wx:if="{{ cards.length > 0 }}" 
-scroll-y="true" 
-bindscrolltoupper="upper" 
-upper-threshold="10" 
-lower-threshold="5" 
-bindscrolltolower="lower" 
->
+<scroll-view class='page blue_bg' wx:if="{{ cards.length > 0 }}" scroll-y="true" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower">
   <view class="cards_list_container">
     <image class='cards_list_box_bg' mode="aspectFit" src="/images/cards.png"></image>
     <navigator class="card_list" wx:for="{{ cards }}" wx:for-item="card" wx:key url="/pages/show/show?id={{ card.id }}" open-type="navigate" hover-class="navigator-hover">
@@ -40,14 +33,15 @@ bindscrolltolower="lower"
       </view>
       <view class="card_list__hot_box">
         <!--有什么类型就展示什么类型 供/招/购/合 -->
-          <view wx:if="{{ card.needs.provide }}" class="weui-badge t-s" style="margin-top: 5rpx;">供</view>
-          <view wx:if="{{ card.needs.job }}" class="weui-badge t-s" style="margin-top: 5rpx;">招</view>
-          <view wx:if="{{ card.needs.buy }}" class="weui-badge t-s" style="margin-top: 5rpx;">购</view>
-          <view wx:if="{{ card.needs.co }}" class="weui-badge t-s" style="margin-top: 5rpx;">合</view> 
+        <view wx:if="{{ card.needs.provide }}" class="weui-badge t-s" style="margin-top: 5rpx;">供</view>
+        <view wx:if="{{ card.needs.job }}" class="weui-badge t-s" style="margin-top: 5rpx;">招</view>
+        <view wx:if="{{ card.needs.buy }}" class="weui-badge t-s" style="margin-top: 5rpx;">购</view>
+        <view wx:if="{{ card.needs.co }}" class="weui-badge t-s" style="margin-top: 5rpx;">合</view>
+        <view class="distance t-s t-gray1 t-r">{{ card.distance }}</view>
       </view>
     </navigator>
   </view>
   <view class="weui-loadmore weui-loadmore_line">
-      <view class="gray-bg weui-loadmore__tips weui-loadmore__tips_in-line">暂无更多数据</view>
+    <view class="gray-bg weui-loadmore__tips weui-loadmore__tips_in-line">暂无更多数据</view>
   </view>
 </scroll-view>

@@ -1,66 +1,83 @@
-// pages/discovery/discovery.js
+let card = require('../../utils/card')
+let util = require('../../utils/util')
+let needsEn = Object.entries(util.needsMap)
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-  
+    addAnimation: false,
+
+    // search
+    inputShowed: false,
+    inputVal: "",
+
+    // swiper
+    tabs: Object.values(util.needsMap),
+    showtab: 0
+  },
+  showNeedsSelections: function(){
+    wx.showActionSheet({
+      itemList: Object.values(util.needsMap),
+      success: function (res) {
+        if (!res.cancel) {
+          console.log(res)
+          console.log(needsEn[res.tapIndex][0])
+          wx.navigateTo({
+            url: '/pages/publish/publish?type=' + needsEn[res.tapIndex][0],
+          })
+        }
+      }
+    });
+  },
+  showInput: function () {
+    this.setData({
+      inputShowed: true
+    });
+  },
+  hideInput: function () {
+    this.setData({
+      inputVal: "",
+      inputShowed: false
+    });
+  },
+  clearInput: function () {
+    this.setData({
+      inputVal: ""
+    });
+  },
+  inputTyping: function (e) {
+    this.setData({
+      inputVal: e.detail.value
+    });
+  },
+  onLoad: function () {
+    this.setData({
+      addAnimation: true
+    })
+
+    console.log(util.needsMap)
+    var that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        let sliderWidth = res.windowWidth / that.data.tabs.length
+        console.log(res)
+        that.setData({
+          sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 2,
+          sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex,
+          sliderWidth: sliderWidth + 'px'
+        });
+      }
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
+  // swiper
+  togglepage: function (e){
+    this.setData({
+      showtab: e.detail.current
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  setTab: function (e){
+    console.log(e.currentTarget.dataset.tabindex)
+    this.setData({
+      showtab: e.currentTarget.dataset.tabindex
+    })
   }
-})
+});

@@ -18,6 +18,17 @@
   transform: translateX(-17rpx)
 }
 
+.edit_avatar__delete {
+  position: absolute;
+  width: 35rpx;
+  height: 35rpx;
+  right: 10rpx;
+  top: 10rpx;
+  padding: 10rpx;
+  padding-top: 0;
+  padding-right: 0;
+}
+
 /* .edit_avatar::after {
   content: '+';
   position: absolute;

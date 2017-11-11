@@ -18,6 +18,17 @@ module.exports = {
   formatTime: formatTime
 }
 
+// 需求配置
+let needsMap = {
+  chance: "合作机会",
+  buy: "采购计划",
+  job: "人才招聘",
+  provide: "物资供应",
+  provide2: "物资供应2",
+}
+
+module.exports.needsMap = needsMap
+
 // 封装loading模块
 let loader = {
   show: function (context) {
@@ -25,7 +36,7 @@ let loader = {
       title: '加载中',
     })
     wx.showNavigationBarLoading()
-    if (context){
+    if (context) {
       context.setData({
         isLoading: false
       })
@@ -69,11 +80,33 @@ function pull(url, method, params) {
 }
 // 封装HTTP模块
 module.exports.http = {
-  get: function (url, params){
+  get: function (url, params) {
     return pull(url, 'GET', params)
   },
-  post: function (url, params){
+  post: function (url, params) {
     return pull(url, 'POST', params)
   }
 }
 
+module.exports.http = {
+  get: function (url, params) {
+    return pull(url, 'GET', params)
+  },
+  post: function (url, params) {
+    return pull(url, 'POST', params)
+  }
+}
+
+module.exports.tools = {
+  showErr: function(msg, callback){
+    wx.showModal({
+      content: msg,
+      showCancel: false,
+      success: function (res) {
+        if (res.confirm) {
+          callback && callback()
+        }
+      }
+    });
+  }
+} 

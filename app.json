@@ -1,13 +1,15 @@
 {
   "pages": [
+    "pages/discovery/discovery",
     "pages/index/index",
     "pages/show/show",
     "pages/cards/cards",
-    "pages/discovery/discovery",
     "pages/my/my",
     "pages/edit/edit",
     "pages/hot/hot",
-    "pages/needs/needs"
+    "pages/needs/needs",
+    "pages/publish/publish",
+    "pages/share/share"
   ],
   "window": {
     "backgroundTextStyle": "#ccc",

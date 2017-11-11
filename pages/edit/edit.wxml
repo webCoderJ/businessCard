@@ -98,8 +98,9 @@
               <view class="weui-uploader__bd">
                 <view class="weui-uploader__files" id="uploaderFiles">
                   <block wx:for="{{ imgPreList }}" wx:key="*this">
-                    <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
-                      <image class="weui-uploader__img bdr-5" src="{{item}}" mode="aspectFill" />
+                    <view class="weui-uploader__file edit_avatar__box" >
+                      <image class="weui-uploader__img bdr-5" bindtap="previewImage" id="{{item}}" src="{{item}}" mode="aspectFill" />
+                      <image class='edit_avatar__delete' id="{{item}}" bindtap="deleteImage" src="/images/icon-delete.png"/>
                     </view>
                   </block>
                 </view>

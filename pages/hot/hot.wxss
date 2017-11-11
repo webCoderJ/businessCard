@@ -14,3 +14,14 @@
   z-index: 10;
   opacity: 0.88;
 }
+
+.card_list__hot_box {
+  position: relative;
+}
+
+.distance {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  right: 0;
+}

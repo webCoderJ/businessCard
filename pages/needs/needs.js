@@ -21,6 +21,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    console.log(options)
+
+    wx.setNavigationBarTitle({
+      title: util.needsMap[options.type]
+    })
+
+    util.http.get('/card/get_needs', {
+      type: options.type
+    }).then(data => {
+      console.log(data)
+    })
   }
 })

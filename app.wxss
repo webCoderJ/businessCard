@@ -62,7 +62,7 @@ scroll-view {
 /*基础样式  */
 /* 颜色 */
 .wx-blue {
-  color: #09ba07;
+  color: rgba(9, 186, 7);
 }
 .bdb{
   box-sizing:border-box;
@@ -70,7 +70,12 @@ scroll-view {
 .bdr-5{
   border-radius: 5px;
 }
-
+bd-tp {
+  border-top: 1px solid #F8F8F8;
+}
+bd-bt {
+  border-bottom: 1px solid #F8F8F8;
+}
 /* 文字 */
 .t-nowrap {
   white-space: nowrap;
@@ -102,8 +107,14 @@ scroll-view {
 .t-wx {
   color: #09ba07;
 }
+.white-bg {
+  background-color: #fff;
+}
 .gray-bg {
   background-color: #F8F8F8;
+}
+.trans-bg {
+  background: transparent;
 }
 .t-gray1 {
   color: #8a8a8a;
@@ -129,7 +140,7 @@ scroll-view {
 .t-m {
   font-size: 32rpx;
 }
-.t-l {
+.t-b {
   font-size: 40rpx;
 }
 .t-xl {
@@ -146,9 +157,17 @@ scroll-view {
   align-items: center;
   justify-content: center;
 }
+.flow-lf {
+  align-items: flex-start;
+}
 .flex-item {
   flex: 1;
 }
+
+.pd0 {
+  padding: 0;
+}
+
 .pd30 {
   padding: 30rpx;
 }
@@ -167,6 +186,10 @@ scroll-view {
 
 .pd-bt {
   padding-bottom: 30rpx;
+}
+
+.mg0 {
+  margin: 0;
 }
 
 .mg-tp {

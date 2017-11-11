@@ -1,1 +1,86 @@
 /* pages/discovery/discovery.wxss */
+.searchbar-result{
+  margin-top: 0;
+  font-size: 14px;
+}
+
+.searchbar-result:before{
+  display: none;
+}
+
+.weui-cell{
+  padding: 12px 15px 12px 35px;
+}
+
+.weui-navbar {
+  overflow-x: scroll;
+}
+
+.weui-navbar__item {
+  padding: 8px;
+}
+
+.publish__add {
+  background: #09ba07;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  text-align: center;
+  position: fixed;
+  right: 50rpx;
+  bottom: 50rpx;
+  color: #fff;
+  font-weight: 200;
+  font-size: 57rpx;
+  box-shadow: 5rpx 5rpx 20rpx  rgba(9, 186, 7, 0.5);
+  transition: all 1s linear;
+  -webkit-transition: all 1s linear;
+}
+.publish__add-active {
+  transform: rotate(360deg);
+}
+
+.card_icon {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.discovery__icon_box {
+  text-align: center;
+}
+
+.navi_item {
+  border-bottom: 2px solid #fff;
+  transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+}
+
+.navi_active {
+  color: #09ba07;
+  border-bottom: 2px solid #09ba07;
+}
+
+.discovery_navi {
+  background: #fff;
+  border-top: 1px solid #F8F8F8;
+  border-bottom: 1px solid #F8F8F8;
+}
+
+.discovery_navi__box {
+  padding: 5rpx 0;
+  white-space: nowrap;
+  width: 78%;
+  box-shadow: inset -12px -2px 15px -13px #ccc;
+}
+
+.navi_item {
+  display: inline-block;
+  padding: 10rpx;
+  width: 30%;
+  text-align: center;
+}
+
+.discovery_navi__tools {
+  width: 22%;
+  border-left: 1px solid #F8F8F8;
+}

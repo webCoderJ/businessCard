@@ -45,11 +45,40 @@ Page({
         initPhone: card.phone,
         initCoName: card.co,
         initPosition: card.position,
-        initEmail: card.email
+        initEmail: card.email,
+        imgPreList: card.imgs
       })
     }
   },
-
+  chooseImage: function () {
+    const _this = this
+    wx.chooseImage({
+      count: this.data.imgMaxLen,
+      sizeType: 'original',
+      success: function (res) {
+        var tempFilePaths = res.tempFilePaths
+        _this.setData({
+          imgPreList: [..._this.data.imgPreList, ...tempFilePaths].slice(0, _this.data.imgMaxLen)
+        })
+        console.log(tempFilePaths)
+      }
+    })
+  },
+  previewImage: function (e) {
+    console.log(e)
+    wx.previewImage({
+      current: e.currentTarget.id, // 当前显示图片的http链接
+      urls: this.data.imgPreList // 需要预览的图片http链接列表
+    })
+  },
+  deleteImage: function (e) {
+    let _this = this
+    console.log(e.currentTarget.id)
+    console.log(this.data.imgPreList.filter(item => item != e.currentTarget.id))
+    this.setData({
+      imgPreList: _this.data.imgPreList.filter(item => item != e.currentTarget.id)
+    })
+  },
   chageAvatar: function () {
     const _this = this
     wx.chooseImage({
@@ -136,28 +165,5 @@ Page({
         })
       })
     }
-  },
-
-  chooseImage: function () {
-    const _this = this
-    wx.chooseImage({
-      count: this.data.imgMaxLen,
-      sizeType: 'original',
-      success: function (res) {
-        var tempFilePaths = res.tempFilePaths
-        _this.setData({
-          imgPreList: [..._this.data.imgPreList, ...tempFilePaths].slice(0, _this.data.imgMaxLen)
-        })
-        console.log(tempFilePaths)
-      }
-    })
-  },
-
-  previewImage: function (e) {
-    console.log(e)
-    wx.previewImage({
-      current: e.currentTarget.id, // 当前显示图片的http链接
-      urls: this.data.imgPreList // 需要预览的图片http链接列表
-    })
   }
 })
