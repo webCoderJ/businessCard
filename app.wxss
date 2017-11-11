@@ -12,6 +12,11 @@ view {
 scroll-view {
   height: 100%;
 }
+.fixed {
+  position: fixed;
+  left: 0;
+  top: 0;
+}
 .page__hd {
     padding: 40px;
 }

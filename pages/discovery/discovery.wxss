@@ -1,14 +1,15 @@
 /* pages/discovery/discovery.wxss */
-.searchbar-result{
+
+.searchbar-result {
   margin-top: 0;
   font-size: 14px;
 }
 
-.searchbar-result:before{
+.searchbar-result:before {
   display: none;
 }
 
-.weui-cell{
+.weui-cell {
   padding: 12px 15px 12px 35px;
 }
 
@@ -29,13 +30,14 @@
   position: fixed;
   right: 50rpx;
   bottom: 50rpx;
-  color: #fff;
-  font-weight: 200;
   font-size: 57rpx;
-  box-shadow: 5rpx 5rpx 20rpx  rgba(9, 186, 7, 0.5);
+  box-shadow: 5rpx 5rpx 20rpx rgba(9, 186, 7, 0.5);
   transition: all 1s linear;
   -webkit-transition: all 1s linear;
+  z-index: 100;
+  opacity: 0.88;
 }
+
 .publish__add-active {
   transform: rotate(360deg);
 }
@@ -62,25 +64,104 @@
 
 .discovery_navi {
   background: #fff;
-  border-top: 1px solid #F8F8F8;
-  border-bottom: 1px solid #F8F8F8;
+  border-top: 1px solid #f8f8f8;
+  border-bottom: 1px solid #f8f8f8;
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  box-shadow: 0 10rpx 15rpx #ddd;
 }
 
 .discovery_navi__box {
-  padding: 5rpx 0;
   white-space: nowrap;
-  width: 78%;
-  box-shadow: inset -12px -2px 15px -13px #ccc;
+  width: 76%;
+  box-shadow: inset -15px -2px 15px -13px #ccc;
 }
 
 .navi_item {
   display: inline-block;
-  padding: 10rpx;
+  padding: 20rpx 10rpx;
   width: 30%;
   text-align: center;
 }
 
 .discovery_navi__tools {
-  width: 22%;
-  border-left: 1px solid #F8F8F8;
+  width: 24%;
+  border-left: 1px solid #f8f8f8;
+}
+
+.discovery__content {
+  /* padding-top: 100rpx; */
+  min-height: 100%;
+  position: fixed;
+  top: 100rpx;
+  left: 0;
+}
+
+.discovery__swiper {
+  min-height: 100%;
+}
+
+.discovery__list {
+  overflow-y: scroll;
+}
+
+.nees_card {
+  background: #fff;
+  padding: 30rpx;
+  margin-top: 30rpx;
+}
+
+.nees_card:nth-child(1) {
+  margin-top: 0;
+}
+
+.nees_card__avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  align-self: flex-start;
+}
+
+.nees_card__detail {
+  margin-left: 30rpx;
+  height: 100%;
+}
+
+.detail__name {
+  font-size: 35rpx;
+}
+
+.detail__coinfo {
+  font-size: 24rpx;
+  color: #8a8a8a;
+}
+
+.detail__title {
+  margin-top: 35rpx;
+}
+
+.detail__side {
+  font-size: 24rpx;
+  color: #8a8a8a;
+  border-top: 1px solid #F8F8F8;
+  padding-top: 30rpx;
+}
+
+.needs_icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+  vertical-align: middle;
+}
+
+.need_img_box {
+  width: 33.3%;
+  display: inline-block;
+}
+
+.need_img_box__item {
+  width: 150rpx;
+  height: 150rpx;
 }

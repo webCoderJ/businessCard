@@ -16,7 +16,8 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "致名片",
     "navigationBarTextStyle": "black",
-    "backgroundColor": "#fff"
+    "backgroundColor": "#fff",
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "color": "#626567",

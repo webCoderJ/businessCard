@@ -1,13 +1,13 @@
 <view class="page">
   <!--发布按钮  -->
   <view class="publish__add {{ addAnimation ? 'publish__add-active' : '' }}" hover-class="weui-cell_active" bindtap="showNeedsSelections">
-    <text>+</text>
+    <image src="/images/icon-add.png" class="card_icon" style="vertical-align: middle;">
+    </image>
   </view>
-  
 </view>
 
-<!--swiper  -->
-<view class='discovery_navi flex-box shadow'>
+<!--导航  -->
+<view class='discovery_navi flex-box'>
   <scroll-view scroll-x="true" scroll-with-animation="true" scroll-into-view="tab_{{showtab}}" class="discovery_navi__box">
     <view wx:for="{{ tabs }}" bindtap="setTab" wx:key="*this" class="navi_item {{showtab == index ? 'navi_active':''}}" id="tab_{{ index }}" data-tabindex="{{ index }}">
       {{ item }}
@@ -17,15 +17,67 @@
     <navigator url="/pages/search/search" class="discovery__icon_box search flex-item bdr-5" hover-class="none">
       <image src="/images/icon-search.png" class="card_icon" style="vertical-align: middle;">
       </image>
-   </navigator>
+    </navigator>
     <navigator url="/pages/hot/hot?type=nearby" class="discovery__icon_box nearby flex-item bdr-5" hover-class="none">
       <image src="/images/icon-nearby.png" class="card_icon" style="vertical-align: middle;">
       </image>
     </navigator>
   </view>
 </view>
-<swiper circular bindchange="togglepage" current="{{showtab}}" style='width:{{windowWidth}}px;min-height:{{windowHeight-42}}px;'>
-  <swiper-item wx:for="{{ tabs }}" wx:key="*this" class="pd30 white-bg">
-    {{ item }}
-  </swiper-item>
-</swiper>
+
+<!--swiper  -->
+<view class="discovery__content" style="width:{{ windowWidth }}px;height: {{ windowHeight - 100 }}px;">
+  <swiper circular bindchange="togglepage" current="{{showtab}}" class="discovery__swiper" style="height: {{ windowHeight - 100}}px;">
+    <swiper-item wx:key="*this" class="discovery__list">
+      <!--需求卡片列表  -->
+      <!--合作  -->
+      <view wx:for="{{ coList }}" wx:for-item="need" class="nees_card">
+        <view class="flex-box">
+          <image src="/images/avatar.jpg" class="nees_card__avatar">
+          </image>
+          <view class="nees_card__detail flex-item">
+            <navigator class="bdr-5" url="/pages/show/show?id={{ card.id }}" open-type="navigate">
+              <view class="detail__name">
+                {{ need.name }}
+              </view>
+              <view class="detail__coinfo">
+                {{ need.position }} | {{ need.co }}
+              </view>
+            </navigator>
+            <navigator class="bdr-5" url="/pages/needs/needs?id={{ card.id }}" open-type="navigate">
+              <view class="detail__title">
+                {{ need.title }}
+              </view>
+            </navigator>
+            <!--图片  -->
+            <view wx:if="{{ card.needs.provideDetail.imgs.length > 0 }}" class="mg-tp mg-bt need_img">
+              <block wx:for="{{ need.imgs }}" wx:key="*this">
+                <view class="need_img_box" bindtap="previewImage" id="{{item}}">
+                  <image class="need_img_box__item bdr-5" src="{{item}}" mode="aspectFill" />
+                </view>
+              </block>
+            </view>
+          </view>
+        </view>
+        <view class="flex-box detail__side">
+          <view class="flex-item">
+            <text>{{ need.hot }}查看</text>
+          </view>
+          <view class="flex-item flex-box">
+            <view class="flex-item t-r">
+              <image wx:if="{{ card.needs.provideDetail.upvoted === 0 }}" class="needs_icon" bindtap="upvote" src="/images/need-good.png" />
+              <image wx:else class="needs_icon" bindtap="disUpvote" src="/images/need-good-active.png" /> {{ need.upvote }}
+            </view>
+            <view class="flex-item wx-blue t-r">
+              <image src="/images/card_active.png" class="needs_icon"></image>
+              名片
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="weui-loadmore weui-loadmore_line">
+        <view class="gray-bg weui-loadmore__tips weui-loadmore__tips_in-line">暂无更多数据</view>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>

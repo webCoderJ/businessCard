@@ -1,4 +1,4 @@
-let card = require('../../utils/card')
+let cards = require('../../utils/card')
 let util = require('../../utils/util')
 let needsEn = Object.entries(util.needsMap)
 Page({
@@ -11,7 +11,15 @@ Page({
 
     // swiper
     tabs: Object.values(util.needsMap),
-    showtab: 0
+    showtab: 0,
+    card: cards.card[0],
+
+    // 需求列表
+    coList: [...cards.needs.co, ...cards.needs.co],
+    buyList: cards.needs.buy,
+
+    windowHeight: 0,
+    windowWidth: 0
   },
   showNeedsSelections: function(){
     wx.showActionSheet({
@@ -57,6 +65,10 @@ Page({
     var that = this;
     wx.getSystemInfo({
       success: function (res) {
+        that.setData({
+          windowHeight: res.windowHeight,
+          windowWidth: res.windowWidth
+        })
         let sliderWidth = res.windowWidth / that.data.tabs.length
         console.log(res)
         that.setData({
@@ -70,6 +82,7 @@ Page({
 
   // swiper
   togglepage: function (e){
+    console.log(e)
     this.setData({
       showtab: e.detail.current
     })
@@ -78,6 +91,26 @@ Page({
     console.log(e.currentTarget.dataset.tabindex)
     this.setData({
       showtab: e.currentTarget.dataset.tabindex
+    })
+  },
+  previewImage: function (e) {
+    console.log(e.currentTarget.id)
+    wx.previewImage({
+      current: e.currentTarget.id,
+      urls: this.data.card.imgs
+    })
+  },
+  // 点赞
+  upvote: function(e){
+    this.setData({})
+    util.http.post('needs/upvote', {
+      type: '1'
+    })
+  },
+  // 取消点赞
+  disUpvote: function (e) {
+    util.http.post('needs/upvote', {
+      type: '0'
     })
   }
 });
