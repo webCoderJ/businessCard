@@ -108,5 +108,22 @@ module.exports.tools = {
         }
       }
     });
-  }
+  },
+  confirm: function (params, confirm, cancel) {
+    let options = Object.assign({
+      title: '',
+      content: '',
+      confirmText: "确定",
+      cancelText: "取消",
+      success: function (res) {
+        console.log(res);
+        if (res.confirm) {
+          confirm && confirm()
+        } else {
+          cancel && cancel()
+        }
+      }
+    }, params)
+    wx.showModal(options);
+  },
 } 

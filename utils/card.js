@@ -54,43 +54,25 @@ module.exports = {
     }
   ],
   needs: {
-    co: [
-      {
-        name: '彭杰',
-        co: '老虎外汇科技',
-        position: '前端开发',
-        imgs: [
-          '/images/avatar.jpg',
-          '/images/icon-hot.png',
-          '/images/icon-job.png',
-          '/images/icon-co.png',
-          '/images/icon-provide.png'
-        ],
-        hot: 20,
-        upvote: 88,
-        upvoted: 0,
-        title: '本公司开发小程序，牛批得很！',
-        desc: '本公司开发小程序，牛批得很！想做快点给老子打电话！！！Talk is cheap, show me the code!，本公司开发小程序，牛批得很！想做快点给老子打电话！！！Talk is cheap, show me the code!本公司开发小程序，牛批得很！想做快点给老子打电话！！！Talk is cheap, show me the code!本公司开发小程序，牛批得很！'
-      }
+    id: 0,
+    name: '向日狗',
+    co: '鹏凌科技',
+    position: 'CEOOO',
+    avatar: '/images/avatar.jpg',
+    hot: 20,
+    upvote: 88,
+    // 是否为自己发布
+    is_self: 0,
+    // 是否点过赞
+    upvoted: 0,
+    title: '本公司开发小程序，牛批得很！',
+    desc: '本公司开发小程序，牛批得很！想做快点给老子打电话！！！Talk is cheap, show me the code!，本公司开发小程序，牛批得很！想做快点给老子打电话！！！Talk is cheap, show me the code!本公司开发小程序，牛批得很！想做快点给老子打电话！！！Talk is cheap, show me the code!本公司开发小程序，牛批得很！',
+    imgs: [
+      '/images/avatar.jpg',
+      '/images/icon-hot.png',
+      '/images/icon-job.png',
+      '/images/icon-co.png',
+      '/images/icon-provide.png'
     ],
-    buy: [
-      {
-        name: '彭杰',
-        co: '老虎外汇科技',
-        position: '前端开发',
-        imgs: [
-          '/images/avatar.jpg',
-          '/images/icon-hot.png',
-          '/images/icon-job.png',
-          '/images/icon-co.png',
-          '/images/icon-provide.png'
-        ],
-        hot: 20,
-        upvote: 88,
-        upvoted: 0,
-        title: '本公司开发小程序，牛批得很！',
-        desc: '本公司开发小程序，牛批得很！想做快点给老子打电话！！！Talk is cheap, show me the code!，本公司开发小程序，牛批得很！想做快点给老子打电话！！！Talk is cheap, show me the code!本公司开发小程序，牛批得很！想做快点给老子打电话！！！Talk is cheap, show me the code!本公司开发小程序，牛批得很！'
-      }
-    ]
   }
 }

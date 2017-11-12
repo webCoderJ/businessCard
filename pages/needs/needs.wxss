@@ -1,1 +1,29 @@
 /* pages/needs/needs.wxss */
+
+.detail__side {
+  font-size: 24rpx;
+  color: #8a8a8a;
+  border-top: 1px solid #f8f8f8;
+  padding: 30rpx;
+}
+
+.needs_icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+  vertical-align: middle;
+}
+
+.need_img_box {
+  width: 33.3%;
+  display: inline-block;
+}
+
+.need_img_box__item {
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.weui-media-box__desc {
+  -webkit-line-clamp:50;
+}

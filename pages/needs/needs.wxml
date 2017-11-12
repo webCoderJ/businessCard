@@ -1,25 +1,59 @@
-<!--pages/needs/needs.wxml-->
-
 <view class="page">
-  <view class="page__hd">
-    <view class="page__title">{{ need.title }}</view>
-    <view class="page__desc"></view>
-  </view>
-  <view class="page__bd">
-    <view class="weui-form-preview">
-      <view class="weui-form-preview__hd">
-        <view class="weui-form-preview__label">预估价格</view>
-        <view class="weui-form-preview__value_in-hd">¥2400.00</view>
-      </view>
-      <view class="weui-form-preview__bd">
-        <view class="weui-form-preview__item">
-          <view class="weui-form-preview__value t-l">{{ need.desc }}</view>
+  <view class="page__bd mg-tp">
+    <view class="weui-panel">
+      <view class="weui-panel__bd">
+        <view class="weui-media-box weui-media-box_text">
+          <view class="weui-media-box__title weui-media-box__title_in-text">{{ need.title }}</view>
+          <view class="weui-media-box__desc">{{ need.desc }}</view>
+          <!--图片  -->
+          <view wx:if="{{ need.imgs.length > 0 }}" class="mg-tp mg-bt need_img">
+            <block wx:for="{{ need.imgs }}" wx:key="*this">
+              <view class="need_img_box" bindtap="previewImage" id="{{item}}">
+                <image class="need_img_box__item bdr-5" src="{{item}}" mode="aspectFill" />
+              </view>
+            </block>
+          </view>
+          <view class="weui-media-box__info">
+            <view class="weui-media-box__info__meta">查看{{ need.hot }}</view>
+            <view class="weui-media-box__info__meta"></view>
+            <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">其它信息</view>
+          </view>
+        </view>
+        <!--是/否自己发布  -->
+        <view wx:if="{{ need.is_self == 1}}" class="flex-box detail__side">
+          <view class="flex-item">
+            <text>{{ need.hot }}查看</text>
+          </view>
+          <view class="flex-item flex-box">
+            <view class="flex-item t-r">
+              <image wx:if="{{ need.upvoted == 0 }}" class="needs_icon" data-type="{{ nav.name_en }}" data-nav-index="{{ nav_index }}" data-index="{{ index }}" data-id="{{ need.id }}" bindtap="upvote" src="/images/need-good.png" />
+              <image wx:else class="needs_icon" data-type="{{ nav.name_en }}" data-nav-index="{{ nav_index }}" data-index="{{ index }}" data-id="{{ need.id }}" bindtap="disUpvote" src="/images/need-good-active.png" /> {{ need.upvote }}
+            </view>
+            <view class="flex-item wx-blue t-r">
+              <image src="/images/card_active.png" class="needs_icon"></image>
+              名片
+            </view>
+          </view>
+        </view>
+        <view wx:if="{{ need.is_self == 0}}" class="flex-box detail__side">
+          <view class="flex-item">
+            <text>{{ need.hot }}查看</text>
+          </view>
+          <view class="flex-item flex-box">
+            <navigator class="flex-item t-r" url="/pages/publish/publish?need_type={{ need.type }}&type=edit&id={{ need.id }}" hover-class='none'>
+              <image src="/images/icon-edit.png" class="needs_icon"></image>
+              修改
+            </navigator>
+            <view class="flex-item wx-blue t-r" bindtap='deleteNeed'>
+              <image src="/images/icon-delete-darker.png" class="needs_icon"></image>
+              删除
+            </view>
+          </view>
         </view>
       </view>
-      <view class="weui-form-preview__ft">
-        <button
-          class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" bindtap='makePhoneCall'>联系TA</button>
-      </view>
+    </view>
+    <view wx:if="{{ need.is_self == 0}}" class="button-sp-area">
+      <button class="weui-btn" type="primary" plain="true" bindtap="makePhoneCall">联系TA</button>
     </view>
   </view>
 </view>
