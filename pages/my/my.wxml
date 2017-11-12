@@ -7,7 +7,7 @@
         </view>
         <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
           <view class="weui-media-box__title">{{ card.name }}</view>
-          <view class="weui-media-box__desc">{{ card.more }}</view>
+          <view class="weui-media-box__desc">{{ card.position }} | {{ card.co }}</view>
         </view>
         <view class="weui-cell__ft weui-cell__ft_in-access"></view>
       </navigator>

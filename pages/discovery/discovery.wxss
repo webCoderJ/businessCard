@@ -35,11 +35,22 @@
   transition: all 1s linear;
   -webkit-transition: all 1s linear;
   z-index: 100;
-  opacity: 0.88;
+  opacity: 0.888;
 }
 
 .publish__add-active {
   transform: rotate(360deg);
+}
+
+.no_refresh {
+  transition: height 0.2s linear;
+  -webkit-transition: height 0.2s linear;
+  height: 0;
+  padding-top: 10rpx;
+}
+
+.is_refresh_active {
+  height: 50rpx;
 }
 
 .card_icon {
@@ -94,7 +105,7 @@
 .discovery__content {
   /* padding-top: 100rpx; */
   min-height: 100%;
-  position: relative;
+  position: fixed;
   top: 100rpx;
   left: 0;
 }
@@ -145,7 +156,7 @@
 .detail__side {
   font-size: 24rpx;
   color: #8a8a8a;
-  border-top: 1px solid #F8F8F8;
+  border-top: 1px solid #f8f8f8;
   padding-top: 30rpx;
 }
 
