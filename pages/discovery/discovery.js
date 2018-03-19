@@ -1,6 +1,6 @@
 let cards = require('../../utils/card')
 let util = require('../../utils/util')
-let needsEn = Object.entries(util.needsMap)
+// let needsEn = Object.entries(util.needsMap)
 Page({
   data: {
     addAnimation: false,
